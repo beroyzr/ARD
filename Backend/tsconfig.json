@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "ES6",
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "include": ["**/*.ts"], // Eğer tüm proje dizinini taramak istiyorsanız
+  "exclude": ["node_modules", "dist"]
+}
