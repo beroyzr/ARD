@@ -32,3 +32,14 @@ export const addMediaScan = async (data) => {
     throw error;
   }
 };
+
+// New API Functions
+export const getCases = async () => {
+  const { data } = await axios.get(`${API_BASE_URL}/cases`);
+  return data;
+};
+
+export const addCase = async (caseData) => {
+  const { data } = await axios.post(`${API_BASE_URL}/cases`, caseData);
+  return data;
+};
