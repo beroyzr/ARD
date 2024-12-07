@@ -69,6 +69,23 @@ router.get("/", async (req: Request, res: Response, next: NextFunction): Promise
   }
 });
 
+// Get media scan by ID
+router.get("/:id", async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  try {
+    const mediaScan = await MediaScan.findById(req.params.id);
+    console.log("Result:", mediaScan); // Debug log
+    if (!mediaScan) {
+      res.status(404).json({ error: "Media scan not found" });
+      return;
+    }
+    res.json(mediaScan);
+  } catch (err: any) {
+    console.log("Error:", err); // Debug log
+    next(err);
+  }
+});
+
+
 // Add a new media scan record
 router.post("/", async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
@@ -100,6 +117,33 @@ router.post(
   }
 );
 
+// Update a media scan record
+router.put("/:id", async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  try {
+    const updatedRecord = await MediaScan.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    if (!updatedRecord) {
+      res.status(404).json({ error: "Media scan record not found." });
+      return; // Exit the function after sending the response
+    }
+    res.json(updatedRecord);
+  } catch (err: any) {
+    next(err);
+  }
+});
+
+// Delete a media scan record
+router.delete("/:id", async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  try {
+    const deletedRecord = await MediaScan.findByIdAndDelete(req.params.id);
+    if (!deletedRecord) {
+      res.status(404).json({ error: "Media scan record not found." });
+      return; // Exit the function after sending the response
+    }
+    res.json({ message: "Media scan record deleted successfully." });
+  } catch (err: any) {
+    next(err);
+  }
+});
 
 // Centralized error handling middleware
 router.use((err: any, req: Request, res: Response, next: NextFunction): void => {

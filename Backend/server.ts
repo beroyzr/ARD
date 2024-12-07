@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import connectDB from './config/db';
 import mediaScanRoutes from './routes/mediaScan';
+import caseTrackingRoutes from './routes/caseTracking';
 
 // .env dosyasını yükle
 dotenv.config();
@@ -20,6 +21,7 @@ connectDB();
 
 // Rotalar
 app.use('/api/mediascan', mediaScanRoutes);
+app.use('/api/cases', caseTrackingRoutes); 
 
 // Sunucuyu dinleme
 const PORT: number = Number(process.env.PORT) || 5000;
