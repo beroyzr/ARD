@@ -1,31 +1,17 @@
 // src/pages/Home.jsx
-import React, { useEffect, useState } from "react";
-import { getMediaScans } from "../services/api";
+import React from "react";
 
 const Home = () => {
-  const [mediaScans, setMediaScans] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await getMediaScans();
-        setMediaScans(data);
-      } catch (error) {
-        console.error("Veri çekme hatası:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
   return (
     <div>
-      <h1>Medya Taramaları</h1>
-      <ul>
-        {mediaScans.map((scan, index) => (
-          <li key={index}>{scan.name}</li> // Örnek bir veri alanı
-        ))}
-      </ul>
+      <h1>Welcome to ARD System</h1>
+      <div>
+        <p>Please use the navigation menu to:</p>
+        <ul>
+          <li>View and manage Media Scans</li>
+          <li>Track Cases</li>
+        </ul>
+      </div>
     </div>
   );
 };

@@ -14,6 +14,11 @@ const MediaScanList = ({ scans }) => {
               <strong>Olay Kategorisi:</strong> {scan.olayKategorisi} <br />
               <strong>Olay Özeti:</strong> {scan.olayOzeti} <br />
               <strong>Kanıt Linkleri:</strong> {scan.kanitLinkleri.join(", ")} <br />
+              <strong>Dosya:</strong> {scan.dosyaYukleme}<br />
+              <strong>relateD:</strong> {scan.relatedCase}<br/>
+              <strong>Tags:</strong> {scan.tags.join(", ")}<br/>
+              <strong>Created At:</strong> {scan.createdAt}<br/>
+              <strong>Updated At:</strong> {scan.updatedAt}<br/>
             </li>
           ))}
         </ul>

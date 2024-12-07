@@ -44,6 +44,18 @@ const MediaScanForm = ({ onAdd }) => {
         <label>Kanıt Linkleri (virgülle ayırın):</label>
         <input type="text" name="kanitLinkleri" value={formData.kanitLinkleri} onChange={handleChange} />
       </div>
+      <div>
+        <label>Dosya:</label>
+        <input type="file" name="dosyaYukleme" value={formData.dosyaYukleme} onChange={handleChange} />
+      </div>
+      <div>
+        <label>relateD:</label>
+        <input type="text" name="relatedCase" value={formData.relatedCase} onChange={handleChange} />
+      </div>
+      <div>
+        <label>Tags:</label>
+        <input type="text" name="tags" value={formData.tags} onChange={handleChange} />
+      </div>
       <button type="submit">Ekle</button>
     </form>
   );
