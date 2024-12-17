@@ -19,8 +19,8 @@ const MediaScans = () => {
   };
 
   return (
-    <div>
-      <h1>Hak İhlalleri Yönetimi</h1>
+    <div className="p-4">
+      <h1 className="text-xl font-bold">Hak İhlalleri Yönetimi</h1>
       <MediaScanForm onAdd={handleAddScan} />
       <MediaScanList scans={scans} />
     </div>

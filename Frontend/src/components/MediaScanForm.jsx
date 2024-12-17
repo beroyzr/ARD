@@ -27,36 +27,32 @@ const MediaScanForm = ({ onAdd }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Tarama Dönemi:</label>
-        <input type="text" name="taramaDonemi" value={formData.taramaDonemi} onChange={handleChange} required />
+    <form onSubmit={handleSubmit} className="space-y-4 max-w-lg mx-auto p-4 bg-white rounded-lg shadow">
+      <div className="form-control">
+        <label className="label">
+          <span className="label-text">Tarama Dönemi:</span>
+        </label>
+        <input type="text" name="taramaDonemi" value={formData.taramaDonemi} onChange={handleChange} className="input input-bordered w-full" required />
       </div>
-      <div>
-        <label>Olay Kategorisi:</label>
-        <input type="text" name="olayKategorisi" value={formData.olayKategorisi} onChange={handleChange} required />
+      <div className="form-control">
+        <label className="label">
+          <span className="label-text">Olay Kategorisi:</span>
+        </label>
+        <input type="text" name="olayKategorisi" value={formData.olayKategorisi} onChange={handleChange} className="input input-bordered w-full" required />
       </div>
-      <div>
-        <label>Olay Özeti:</label>
-        <textarea name="olayOzeti" value={formData.olayOzeti} onChange={handleChange} required></textarea>
+      <div className="form-control">
+        <label className="label">
+          <span className="label-text">Olay Özeti:</span>
+        </label>
+        <textarea name="olayOzeti" value={formData.olayOzeti} onChange={handleChange} className="textarea textarea-bordered w-full" required></textarea>
       </div>
-      <div>
-        <label>Kanıt Linkleri (virgülle ayırın):</label>
-        <input type="text" name="kanitLinkleri" value={formData.kanitLinkleri} onChange={handleChange} />
+      <div className="form-control">
+        <label className="label">
+          <span className="label-text">Kanıt Linkleri (virgülle ayırın):</span>
+        </label>
+        <input type="text" name="kanitLinkleri" value={formData.kanitLinkleri} onChange={handleChange} className="input input-bordered w-full" />
       </div>
-      <div>
-        <label>Dosya:</label>
-        <input type="file" name="dosyaYukleme" value={formData.dosyaYukleme} onChange={handleChange} />
-      </div>
-      <div>
-        <label>relateD:</label>
-        <input type="text" name="relatedCase" value={formData.relatedCase} onChange={handleChange} />
-      </div>
-      <div>
-        <label>Tags:</label>
-        <input type="text" name="tags" value={formData.tags} onChange={handleChange} />
-      </div>
-      <button type="submit">Ekle</button>
+      <button type="submit" className="btn btn-primary w-full">Ekle</button>
     </form>
   );
 };

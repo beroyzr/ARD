@@ -12,13 +12,13 @@ const CaseForm = ({ setCases }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input name="title" placeholder="Case Title" required />
-            <input name="date" type="date" required />
-            <input name="description" placeholder="Case Description" required />
-            <input name="status" placeholder="Case Status" required />
-            <input name="attachments" placeholder="Attachments (comma-separated)" required />
-            <button type="submit">Add Case</button>
+        <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-4 space-y-4 bg-white rounded-lg shadow">
+            <input name="title" placeholder="Case Title" required className="input input-bordered w-full" />
+            <input name="date" type="date" required className="input input-bordered w-full" />
+            <input name="description" placeholder="Case Description" required className="input input-bordered w-full" />
+            <input name="status" placeholder="Case Status" required className="input input-bordered w-full" />
+            <input name="attachments" placeholder="Attachments (comma-separated)" required className="input input-bordered w-full" />
+            <button type="submit" className="btn btn-primary w-full">Add Case</button>
         </form>
     );
 };

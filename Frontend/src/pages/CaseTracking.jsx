@@ -15,8 +15,8 @@ const CaseTracking = () => {
     }, []);
 
     return (
-        <div>
-            <h1>Case Tracking</h1>
+        <div className="p-4">
+            <h1 className="text-xl font-bold">Case Tracking</h1>
             <CaseForm setCases={setCases} />
             <CaseList cases={cases} />
         </div>
