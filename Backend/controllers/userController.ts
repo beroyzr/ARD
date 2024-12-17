@@ -37,19 +37,20 @@ export class UserController {
     static async login(req: Request, res: Response) {
         try {
             const { email, password } = req.body;
-
+            
             // Kullanıcıyı email ile bul
             const user = await User.findOne({ email });
             if (!user) {
                 return res.status(401).json({ message: "E-posta veya şifre hatalı." });
             }
+            
 
             // Şifre doğrulama
             const isPasswordValid = await bcrypt.compare(password, user.password);
             if (!isPasswordValid) {
                 return res.status(401).json({ message: "E-posta veya şifre hatalı." });
             }
-
+            console.log(email, password)
             // JWT Token oluşturma
             const token = jwt.sign({ id: user._id, email: user.email }, process.env.JWT_SECRET!, {
                 expiresIn: "1h", // Token 1 saat geçerli

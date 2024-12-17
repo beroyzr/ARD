@@ -22,7 +22,7 @@ app.use("/api/case-tracking", caseTrackingRoutes);
 app.use("/api/media-scans", mediaScanRoutes);
 
 // Veritabanına bağlan
-mongoose.connect("mongodb://localhost:27017/your_database_name")
+mongoose.connect("mongodb+srv://admin:admin123@cluster0.2q0ss.mongodb.net/")
     .then(() => {
         console.log("MongoDB'ye bağlanıldı!");
         app.listen(PORT, () => console.log(`Sunucu ${PORT} portunda çalışıyor!`));
