@@ -43,3 +43,9 @@ export const addCase = async (caseData) => {
   const { data } = await axios.post(`${API_BASE_URL}/cases`, caseData);
   return data;
 };
+
+// Login API Function
+export const login = async (email, password) => {
+  const { data } = await axios.post(`${API_BASE_URL}/login`, { email, password });
+  return data; // Return the response data (e.g., token)
+};
