@@ -1,13 +1,20 @@
 import React from "react";
 import LoginForm from "../components/LoginForm";
 import { useNavigate } from "react-router-dom";
+import { useAuthStore } from "../stores/authStore";
 
 const Login = () => {
     const navigate = useNavigate();
+    const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
-    const handleLoginSuccess = (token) => {
-        console.log("Login Successful. Token:", token);
-        navigate("/"); // Redirect to the homepage after login
+    React.useEffect(() => {
+        if (isAuthenticated) {
+            navigate('/');
+        }
+    }, [isAuthenticated, navigate]);
+
+    const handleLoginSuccess = () => {
+        navigate("/");
     };
 
     return (

@@ -1,13 +1,20 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuthStore } from "../stores/authStore";
 
 const Navbar = () => {
     const navigate = useNavigate();
+    const logout = useAuthStore((state) => state.logout);
+    const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
     const handleLogout = () => {
-        localStorage.removeItem("token"); // Clear token
-        navigate("/login"); // Redirect to login page
+        logout(); // Clear auth state
+        navigate("/login");
     };
+
+    if (!isAuthenticated) {
+        return null; // Don't show navbar if not authenticated
+    }
 
     return (
         <nav className="bg-gray-800 text-white p-4">

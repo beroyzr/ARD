@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:5000/api";
+// Change this to your deployed backend URL
+const API_BASE_URL = process.env.REACT_APP_API_URL;
 
 // Axios örneğini oluşturuyoruz.
 const axiosInstance = axios.create({
@@ -9,6 +10,14 @@ const axiosInstance = axios.create({
     'Content-Type': 'application/json',
     // 'Authorization': 'Bearer token' gibi başlıkları buraya ekleyebilirsiniz.
   }
+});
+
+axiosInstance.interceptors.request.use((config) => {
+  const token = useAuthStore.getState().token;
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
 });
 
 // Media scan'leri çekmek için GET isteği.
@@ -46,6 +55,10 @@ export const addCase = async (caseData) => {
 
 // Login API Function
 export const login = async (email, password) => {
-  const { data } = await axios.post(`${API_BASE_URL}/login`, { email, password });
-  return data; // Return the response data (e.g., token)
+  try {
+    const { data } = await axiosInstance.post('/login', { email, password });
+    return data;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'Login failed');
+  }
 };
