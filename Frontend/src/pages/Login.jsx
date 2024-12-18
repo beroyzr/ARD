@@ -6,6 +6,7 @@ import { useAuthStore } from "../store/authStore";
 const Login = () => {
     const navigate = useNavigate();
     const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+    const setAuth = useAuthStore((state) => state.setAuth);
 
     React.useEffect(() => {
         if (isAuthenticated) {

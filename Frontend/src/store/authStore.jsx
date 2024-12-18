@@ -18,9 +18,13 @@ export const useAuthStore = create(
                 user: null,
                 isAuthenticated: false
             }),
+            checkAuth: () => set((state) => ({
+                isAuthenticated: !!state.token
+            })),
         }),
         {
             name: 'auth-storage',
         }
     )
 )
+
