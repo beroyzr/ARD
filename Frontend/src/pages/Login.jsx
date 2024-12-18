@@ -14,7 +14,8 @@ const Login = () => {
         }
     }, [isAuthenticated, navigate]);
 
-    const handleLoginSuccess = () => {
+    const handleLoginSuccess = (token) => {
+        setAuth(true); // Update isAuthenticated state to true
         navigate("/");
     };
 

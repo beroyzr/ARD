@@ -1,7 +1,8 @@
 import axios from "axios";
+import { useAuthStore } from '../store/authStore';
 
 // Change this to your deployed backend URL
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 
 
@@ -57,10 +58,12 @@ export const addCase = async (caseData) => {
 
 // Login API Function
 export const login = async (email, password) => {
+  console.log(email, password);
   try {
-    const { data } = await axiosInstance.post('/login', { email, password });
+    const { data } = await axiosInstance.post('/users/login', { email, password });
     return data;
   } catch (error) {
-    throw new Error(error.response?.data?.message || 'Login failed');
+    console.error(error);
+    throw new Error(error.response?.data?.message || 'Login failed on api.jsx');
   }
 };

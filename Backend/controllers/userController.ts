@@ -50,7 +50,6 @@ export class UserController {
             if (!isPasswordValid) {
                 return res.status(401).json({ message: "E-posta veya şifre hatalı." });
             }
-            console.log(email, password)
             // JWT Token oluşturma
             const token = jwt.sign({ id: user._id, email: user.email }, process.env.JWT_SECRET!, {
                 expiresIn: "1h", // Token 1 saat geçerli

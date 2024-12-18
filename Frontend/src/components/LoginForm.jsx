@@ -15,7 +15,7 @@ const LoginForm = ({ onLoginSuccess }) => {
             localStorage.setItem("token", token); // Store token in localStorage
             onLoginSuccess(token); // Call parent callback
         } catch (err) {
-            setError(err.message || "Login failed");
+            setError(err.message || "Login failed on comp");
         }
     };
 
