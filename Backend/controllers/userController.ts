@@ -58,6 +58,8 @@ export class UserController {
 
             res.status(200).json({ message: "Giriş başarılı.", token });
         } catch (error) {
+            console.log('Error:', error);
+            console.error(error);
             res.status(500).json({ message: "Giriş sırasında bir hata oluştu.", error });
         }
     }
