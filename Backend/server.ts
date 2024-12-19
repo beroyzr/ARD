@@ -7,7 +7,6 @@ import applicationRoutes from "./routes/applicationRoutes";
 import applicationTypeRoutes from "./routes/applicationTypeRoutes";
 import lawsuitInfoRoutes from "./routes/lawsuitInfoRoutes";
 import caseTrackingRoutes from "./routes/caseTrackingRoutes";
-import mediaScanRoutes from "./routes/mediaScanRoutes";
 
 // Load environment variables
 dotenv.config({ path: path.resolve(__dirname, '.env') });
@@ -25,7 +24,7 @@ app.use("/api/applications", applicationRoutes);
 app.use("/api/application-types", applicationTypeRoutes);
 app.use("/api/lawsuits", lawsuitInfoRoutes);
 app.use("/api/case-tracking", caseTrackingRoutes);
-app.use("/api/media-scans", mediaScanRoutes);
+
 
 // Construct the full MongoDB URI
 const mongoURI = `${process.env.MONGODB_URI}/${DB_NAME}?retryWrites=true&w=majority&appName=Cluster0`;
